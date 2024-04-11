@@ -1,0 +1,14 @@
+스프링 설치방법
+
+https://www.oracle.com/kr/java/technologies/downloads/ -> Java 11 -> 64비트 다운로드 -> 다운로드 폴더에 옮기고 설치
+
+제어판 입력
+
+IDE 설치
+
+spring.io
+
+https://download.springsource.com/release/STS/3.9.18.RELEASE/dist/e4.21/spring-tool-suite-3.9.18.RELEASE-e4.21.0-win32-x86_64.zip
+
+포트번호 8585 
+Server port="8007"
