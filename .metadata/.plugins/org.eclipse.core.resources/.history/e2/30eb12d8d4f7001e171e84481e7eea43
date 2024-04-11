@@ -1,0 +1,10 @@
+package com.spring.di03;
+
+public class MysqlDAO implements DAO{
+	@override
+	public void add() {
+		System.out.println("MysqlDAO db connecting");
+		
+	}
+	
+}

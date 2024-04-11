@@ -8,7 +8,7 @@
 	<bean id="korean" class="com.spring.di02.MessageKR" />
 	
 	<bean id="message" class="com.spring.di02.MessageImpl" >
-		<property name="msg">
+		<property name="message">
 			<ref bean="english" />
 		</property>
 	</bean>

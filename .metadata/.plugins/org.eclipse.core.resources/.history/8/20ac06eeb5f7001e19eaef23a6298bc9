@@ -1,0 +1,7 @@
+package com.nonspring.goott;
+
+public class MessageEM {
+	void printMsg() {
+		System.out.println("not 'spring' as called season");
+	}
+}

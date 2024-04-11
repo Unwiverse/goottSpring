@@ -1,0 +1,16 @@
+package com.spring.di01;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// 스프링 컨테이너를 생성해야 됨.
+		AbstractApplicationContext ctx = 
+				new GenericXmlApplicationContext("classpath:getsum.xml");
+		
+
+	}
+
+}

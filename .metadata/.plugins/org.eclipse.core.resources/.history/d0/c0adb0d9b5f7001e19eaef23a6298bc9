@@ -1,0 +1,15 @@
+package com.nonspring.goott2;
+
+import com.nonspring.goott.MessageEM;
+
+public class Main {
+
+	public static void main(String[] args) {
+		MessageEN msg = new MessageEN();
+		
+		msg.PrintMsg();
+		
+
+	}
+
+}

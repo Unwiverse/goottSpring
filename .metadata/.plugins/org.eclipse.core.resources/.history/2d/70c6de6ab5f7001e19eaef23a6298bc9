@@ -1,0 +1,11 @@
+package com.nonspring.goott2;
+
+public class MessageKR implements Message {
+
+	@Override
+	public void PrintMsg() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

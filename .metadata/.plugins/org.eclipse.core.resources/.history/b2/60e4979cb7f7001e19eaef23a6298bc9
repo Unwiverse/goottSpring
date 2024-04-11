@@ -1,0 +1,15 @@
+package com.nonspring.goott3;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//영문으로 인사말을 전하고 싶으면
+		//1. 인자 생성자를 써서 객체를 주입
+		//MessageImpl impl = new MessageImpl(new MessageEN());
+		
+		MessageKR msg2 = new MessageKR();
+		msg2.PrintMsg();
+		
+	}
+
+}

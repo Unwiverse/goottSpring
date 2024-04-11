@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;member_insert.jsp&apos; to &apos;views&apos;&#x0D;&#x0A;- Original project: &apos;06_JDBC01&apos;&#x0D;&#x0A;- Destination element: &apos;views&apos;&#x0D;&#x0A;- Original element: &apos;member_insert.jsp&apos;" description="Copy file" element1="src/main/webapp/WEB-INF/views/member_insert.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1669088070196" target="/10_MyBatis01/src/main/webapp/WEB-INF/views" units="0" version="1.0"/>
+</session>

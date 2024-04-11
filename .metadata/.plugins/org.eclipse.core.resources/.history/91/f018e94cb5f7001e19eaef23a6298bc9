@@ -1,0 +1,5 @@
+package com.nonspring.goott2;
+
+public interface Message {
+
+}

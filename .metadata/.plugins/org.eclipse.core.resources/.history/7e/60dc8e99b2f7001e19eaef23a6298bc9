@@ -1,0 +1,11 @@
+package com.nonspring.goott;
+
+public class Main {
+
+	public static void main(String[] args) {
+		MessageEM msg = new MessageEM();
+		msg.printMsg();
+
+	}
+
+}
