@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd"
+	>
+	
+	<bean id="no.1" class="com.spring.di09.PCspec" 
+		c:cpu="intel i5-3570" 
+		c:mb="ASRock Z68 Pro-3 M" 
+		p:ram="SAMSUNG DDR3-1600"
+		p:ramsize="16GB" 
+		c:vga="Inno3D GTX 1050 2GB" 
+		c:ssd="Tammuz SSD 222GB" 
+		c:hdd="false" 
+		c:psu="Micronics 600w bronze">
+	</bean>
+	
+	<util:list id="ramList" value-type="java.lang.String">
+        <value>SAMSUNG DDR3-1600</value>
+        <value>16GB</value>
+    </util:list>
+	
+	<bean id="no.2" class="com.spring.di09.PCspec2"
+		c:cpu="intel i5-3570"
+		c:mb="ASRock Z68 Pro-3 M"
+		c:ram-ref="ramList"
+		c:vga="NVIDIA GTX 1060"
+        c:ssd="Samsung 970 EVO"
+        c:hdd="true"
+        c:psu="Corsair 650W">
+	</bean>
+
+</beans>

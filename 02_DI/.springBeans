@@ -10,6 +10,12 @@
 		<config>src/main/resources/getsum.xml</config>
 		<config>src/main/resources/hello.xml</config>
 		<config>src/main/resources/mydao.xml</config>
+		<config>src/main/resources/message.xml</config>
+		<config>src/main/resources/person.xml</config>
+		<config>src/main/resources/baseball.xml</config>
+		<config>src/main/resources/baseballteam.xml</config>
+		<config>src/main/resources/map.xml</config>
+		<config>src/main/resources/pc.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
