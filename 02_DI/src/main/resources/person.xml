@@ -27,7 +27,7 @@
 			</constructor-arg>
 			
 			<!-- <property name="person">
-				<ref bean="person 2" />
+				<ref bean="person2" />
 			</property> -->
 		
 		

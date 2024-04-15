@@ -15,11 +15,8 @@
 		<config>src/main/resources/baseball.xml</config>
 		<config>src/main/resources/baseballteam.xml</config>
 		<config>src/main/resources/map.xml</config>
-		<config>src/main/resources/pc.xml</config>
 	</configs>
 	<autoconfigs>
-		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
