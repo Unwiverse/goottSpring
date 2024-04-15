@@ -1,0 +1,1 @@
+ojdbc.jar 파일 C:\NCS\download\apache-tomcat-9.0.86\lib에 처넣기
