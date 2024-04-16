@@ -1,12 +1,17 @@
 package com.spring.member;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.model.Member;
 import com.spring.model.MemberService;
@@ -31,6 +36,99 @@ public class MemberController {
 		return "member/member_insert";
 	}
 
+	@RequestMapping("member_insert_ok.go")
+	public void insertOk(Member dto, HttpServletResponse response) throws IOException {
+		int check = this.service.insert(dto);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		if(check >0) {
+			out.println("<script>");
+			out.println("alert('회원 등록 성공')");
+			out.println("location.href='member_list.go'");
+			out.println("</script>");
+		} else {
+			out.println("<script>");
+			out.println("alert('회원 등록 실패')");
+			out.println("history.back()");
+			out.println("</script>");
+		}
+		
+	}
 	
+	@RequestMapping("member_content.go")
+	public String cont(@RequestParam("num") int no, Model model) {
+		//회원의 상세 정보를 조회하는 메서드 호출
+		Member cont = this.service.member(no);
+		model.addAttribute("content", cont);
+		return "member/member_content";
+		}
 	
-}
+	@RequestMapping("member_modify.go")
+	public String update(@RequestParam("num") int no, Model model) {
+		Member cont = this.service.member(no);
+		model.addAttribute("Modify", cont);
+		
+		return "member/member_modify";
+	}
+	@RequestMapping("member_modify_ok.go")
+	public void modifyOk(Member dto, HttpServletResponse response) throws Exception{
+		int check = this.service.update(dto);
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		if(check > 0) {
+			out.println("<script>");
+			out.println("alert('회원 수정 성공!!!')");
+			out.println("location.href='member_content.go?num="+dto.getMemno()+"'");
+			out.println("</script>");
+		}else if(check == -1) {
+			out.println("<script>");
+			out.println("alert('비밀번호가 틀립니다. 확인해 주세요~~')");
+			out.println("history.back()");
+			out.println("</script>");
+		}else {
+			out.println("<script>");
+			out.println("alert('회원 수정 실패~~~')");
+			out.println("history.back()");
+			out.println("</script>");
+		}
+		
+		}
+	@RequestMapping("member_delete.go")
+	public String delete(@RequestParam("num") int no, Model model) {
+		model.addAttribute("No", no);
+		
+		return "member/member_delete";
+		}
+	
+	@RequestMapping("member_delete_ok.go")
+	public void ok(@RequestParam("num") int no, @RequestParam("pwd") String pwd, HttpServletResponse response) throws IOException {
+		Member cont = this.service.member(no);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		if(cont.getMempwd().equals(pwd)) {
+			int check = this.service.delete(no);
+			
+			if(check>0) {
+				//삭제 시 순번 재정렬
+				this.service.sequence(no);
+				
+				out.println("<script>");
+				out.println("alert('됨')");
+				out.println("location.href='member_list.go'");
+				out.println("</script>");
+			} else {//비번틀림
+				out.println("<script>");
+				out.println("alert('안됨')");
+				out.println("history.back()");
+				out.println("</script>");
+			}
+		}
+	}
+	}
