@@ -2,9 +2,11 @@ package com.spring.model;
 
 import java.util.List;
 
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+
 @Service
 public class ProductService {
 	
@@ -31,6 +33,10 @@ public class ProductService {
 	}
 	public void sequence(int pnum) {
 		this.dao.updateSequence(pnum);
+	}
+	
+	public List<Category> categoryList() {
+		return this.dao.getCategoryList();
 	}
 	
 }

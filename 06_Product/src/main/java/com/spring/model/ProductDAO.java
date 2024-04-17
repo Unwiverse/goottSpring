@@ -1,7 +1,7 @@
 package com.spring.model;
 
 import java.util.List;
-import java.util.Locale.Category;
+
 
 public interface ProductDAO {
 	List<Product> getProductList();
@@ -17,4 +17,5 @@ public interface ProductDAO {
 	void updateSequence(int pnum);
 	
 	List<Category> getCategoryList();
+	//List<Category> getCategoryList();
 }

@@ -9,39 +9,46 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<div align="center">
-			<hr>
-				<h1>ㅎㅇㅎㅇㅇ</h1>
-			<hr>
-			<br><br>
-		
-		<table border="1">
-			<tr>
-				<th>번호</th>
-				<th>제품명</th>
-				<th>가격</th>
-				<th>제조사</th>
-			</tr>
-			<c:set var="list" value="${List }" />
-			<c:if test="${!empty list }">
-				<c:forEach items="${list }" var="dto">
-					<tr>
-						<td>${dto.pnum }</td>
-						<td>${dto.products_name }</td>
-						<td><fmt:formatNumber value="${dto.output_price }" />원</td>
-						<td>${dto.company }</td>
-					</tr>
-				</c:forEach>
-			</c:if>
-			
-			<c:if test="${empty list }">
+	<div align="center">
+		<hr>
+			<h1>ㅎㅇㅎㅇㅇ</h1>
+		<hr>
+		<br><br>
+	
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>제품명</th>
+			<th>가격</th>
+			<th>제조사</th>
+		</tr>
+		<c:set var="list" value="${List }" />
+		<c:if test="${!empty list }">
+			<c:forEach items="${list }" var="dto">
 				<tr>
-					<td colspan="4" align="center">
-						<h3>제품이 없습니다</h3>
+					<td>${dto.pnum }</td>
+					<td>
+		<a href="<%=request.getContextPath() %>/product_content.go?pnum=${dto.pnum }">
+		${dto.products_name }
+		</a>
 					</td>
+					<td><fmt:formatNumber value="${dto.output_price }" />원</td>
+					<td>${dto.company }</td>
 				</tr>
-			</c:if>
-		</table>
-		</div>
+			</c:forEach>
+		</c:if>
+		
+		<c:if test="${empty list }">
+			<tr>
+				<td colspan="4" align="center">
+					<h3>제품이 없습니다</h3>
+				</td>
+			</tr>
+		</c:if>
+	</table>
+	<br><br>
+	<input type="button" value="제품등록" 
+	onclick="location.href='product_insert.go'">
+	</div>
 </body>
 </html>
