@@ -67,10 +67,8 @@ public class ProductDAOImpl implements ProductDAO {
 				ps.setInt(7, dto.getTrans_cost());
 				ps.setInt(8, dto.getMileage());
 				ps.setString(9, dto.getCompany());
-				
 			}
 		});
-		
 	}
 
 	@Override
@@ -151,9 +149,7 @@ public class ProductDAOImpl implements ProductDAO {
 				dto.setCategory_name(rs.getString("category_name"));
 				return dto;
 			}
-			
 		});
-		
 	}
 
 }

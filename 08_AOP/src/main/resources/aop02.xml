@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	
+	<!-- servlet-context.xml에서 base-package를 com.spring으로 하지 않는 대신 설정함 -->
+	<context:component-scan base-package="com.spring.aop02" />
+	
+	<!--  @Aspect가 붙은 빈을 자동으로 Aspect(공통관심사항)이 되게 만드는 태그 -->
+	<aop:aspectj-autoproxy />
+
+</beans>

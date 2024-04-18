@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	DTD(Document Type Definition)
+	- 작성한 문서가 어떤 문서인지 정의해놓은 걸 말함.
+	- 하나의 시스템 내에서 사용할 xml 데이터의 구조를 정의해
+	  유효성을 점검할 때 쓰는 태그
+
+ -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 
+  		- namespace명은 패키지명을 포함해 DAO 인터페이스 이름을
+  		  쓰는 것이 관례임
+  		- namespace 명은 mapper들을 구분하는데 식별자로 사용이 가능
+  		  
+   -->
+  <mapper namespace="com.mybatis.model.MemberDAO" >
+  
+  		<select id="all" resultType="com.mybatis.model.Member">
+  		select * from member order by memno desc
+  			
+  		</select>
+  	
+  	</mapper>
+
+  
+  
+  
+  

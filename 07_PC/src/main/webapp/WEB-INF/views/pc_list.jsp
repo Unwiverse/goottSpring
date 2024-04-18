@@ -13,7 +13,7 @@
 				<h2>PC List</h2>
 			<hr>
 			<br><br>
-		<c:set var="dto" value="${List }" />
+		<c:set var="list" value="${List }" />
 		<table border="1">
 			<tr>
 				<th>번호</th> <th>CPU</th> <th>Mainboard</th>
@@ -48,6 +48,8 @@
 			</c:if>
 			
 		</table>
+			<input type="button" value="시스템 등록"
+			onclick="location.href='pc_insert.go'">
 	</div>
 </body>
 </html>
