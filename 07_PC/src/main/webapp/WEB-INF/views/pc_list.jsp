@@ -17,24 +17,27 @@
 		<table border="1">
 			<tr>
 				<th>번호</th> <th>CPU</th> <th>Mainboard</th>
-				<th>VGA</th> <th>RAM</th> <th>SSD</th>
-				<th>HDD</th> <th>PSU</th> <th>OS</th>
-				<th>CPU Cooler</th>
+				<th>VGA</th> <th>RAM</th>
+				 <th>OS</th>
 			</tr>
 			
 			<c:if test="${!empty list }">
 				<c:forEach items="${list }" var="dto">
 					<tr>
-						<td>${dto.pnum }</td>
+						<td>
+						<a href="<%=request.getContextPath() %>/pc_content.go?pnum=${dto.pnum }">
+						${dto.pnum }</a>
+						</td>
+						
 						<td>${dto.cpu }</td>
+						
 						<td>${dto.mainboard }</td>
+						
 						<td>${dto.vga }</td>
+						
 						<td>${dto.ram }</td>
-						<td>${dto.ssd }</td>
-						<td>${dto.hdd }</td>
-						<td>${dto.psu }</td>
+						
 						<td>${dto.os }</td>
-						<td>${dto.cpu_cooler }</td>
 					</tr>
 				</c:forEach>
 			</c:if>

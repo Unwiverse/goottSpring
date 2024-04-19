@@ -32,25 +32,10 @@
 					<td><input name="ram"></td>
 				</tr>
 				<tr>
-					<th>ssd</th>
-					<td><input name="ssd"></td>
-				</tr>
-				<tr>
-					<th>hdd</th>
-					<td><input name="hdd"></td>
-				</tr>
-				<tr>
-					<th>psu</th>
-					<td><input name="psu"></td>
-				</tr>
-				<tr>
 					<th>os</th>
 					<td><input name="os"></td>
 				</tr>
-				<tr>
-					<th>cpu cooler</th>
-					<td><input name="cpu_cooler"></td>
-				</tr>
+				
 			</table>
 				<input type="submit" value="등록">&nbsp;&nbsp;&nbsp;
 				<input type="reset" value="다시">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.model.PC;
 import com.spring.model.PCService;
@@ -50,6 +51,12 @@ public class PCController {
 			out.println("history.back()");
 			out.println("</script>");
 		}
+	}
+	@RequestMapping("pc_content.go")
+	public String cont(@RequestParam("pnum") int no, Model model) {
+		PC pc = this.service.content(no);
+		model.addAttribute("PC", pc);
+		return "pc_content";
 	}
 	
 }

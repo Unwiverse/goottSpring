@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+     <!-- 
+    - namespace 명은 패키지명을 포함해서 DAO 인터페이스 이름을
+      사용하는 것이 관례임.
+    - namespace 명은 mapper들을 구분하는데 식별자로 사용이 됨.
+ 	 -->
+    <mapper namespace="com.mybatis.model.MemberDAO">
+   
+      <select id="all" resultType="com.mybatis.model.Member">
+		select * from member order by memno desc
+	  </select>
+   
+      <insert id="add" parameterType="com.mybatis.model.Member">
+		insert into member values(
+			(select max(memno) from member) + 1,
+			#{memid}, #{memname}, #{mempwd}, #{age},
+			#{mileage}, #{job}, #{addr}, sysdate)
+	  </insert>
+	  
+	  <select id="cont" parameterType="int" 
+					resultType="com.mybatis.model.Member">
+		select * from member where memno = #{num}
+	  </select>
+	  
+	  <update id="modify" parameterType="com.mybatis.model.Member">
+		update member set age = #{age},
+			mileage = #{mileage}, job = #{job},
+			addr = #{addr} where memno = #{memno}
+	  </update>
+	  
+	  <delete id="del" parameterType="int">
+		delete from member where memno = #{num}
+	  </delete>
+	  
+	  <update id="seq" parameterType="int">
+		update member set memno = memno - 1 where memno > #{num} 
+	  </update>
+	  
+	  <!-- 
+		<![CDATA[쿼리문]]>
+		- 쿼리문은 작성할 때 조건식 기호(<, >, &)를 사용해야 하는데
+		  XML 에서는 이러한 기호들을 쿼리문의 조건식 기호로 인식하는 것이
+		  아니라 단순한 태그로 인식하는 경우가 발생함.
+		  이런 경우에는 에러가 발생함. 따라서 조건식 기호들을 단순한
+		  문자열로 인식을 시켜주어야 할 때 사용하는 문장.
+	  --> <!-- update태그에 이게 없어서 오류나면 쓰기 -->
+	 </mapper> 
+
