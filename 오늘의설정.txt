@@ -1,0 +1,8 @@
+설정 추가
+
+C:\NCS\workspace(spring)\10_MyBatis_EMP\src\main\resources\mapper\emp.xml에
+
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd"> 이거 추가
