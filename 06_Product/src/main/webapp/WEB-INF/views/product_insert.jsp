@@ -34,8 +34,9 @@
 							
 						</select>
 					</td>
-					
+					</tr>
 				<tr>
+				
 					<th>제품명</th>
 					<td>
 						<input type="text" name="products_name">

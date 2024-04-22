@@ -11,8 +11,7 @@
 				<h1>환영합니다</h1>
 			<hr>				
 			<br><br><br><br><br><br>
-			<a href="<%=request.getContextPath() %>/member_list.go">[innocent]
-			</a>
+			<a href="<%=request.getContextPath() %>/member_list.go">[innocent]</a>
 		</div>
 </body>
 </html>

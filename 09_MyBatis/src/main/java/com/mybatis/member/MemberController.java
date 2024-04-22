@@ -66,8 +66,6 @@ public class MemberController {
 		}
 		
 	}
-	
-	
 	@RequestMapping("member_content.go")
 	public String cont(@RequestParam("num") int no,
 								Model model) {
@@ -77,9 +75,7 @@ public class MemberController {
 		model.addAttribute("Content", cont);
 		
 		return "member_content";
-		
 	}
-	
 	@RequestMapping("member_modify.go")
 	public String modify(@RequestParam("num") int no,
 					Model model) {
@@ -91,7 +87,6 @@ public class MemberController {
 		return "member_modify";
 		
 	}
-	
 	
 	@RequestMapping("member_modify_ok.go")
 	public void modifyOk(Member dto,
@@ -154,7 +149,6 @@ public class MemberController {
 		
 	}
 	
-	
 	@RequestMapping("member_search.go")
 	public String search(@RequestParam("field") String field,
 			@RequestParam("keyword") String keyword, Model model) {
@@ -170,9 +164,7 @@ public class MemberController {
 		model.addAttribute("Search", searchList);
 		
 		return "member_search_list";
-		
 	}
-	
 }
 
 
