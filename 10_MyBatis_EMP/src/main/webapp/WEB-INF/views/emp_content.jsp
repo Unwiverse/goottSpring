@@ -64,7 +64,7 @@
 		<br><br>
 		<input type="button" value="수정" onclick="location.href='emp_update.go?no=${dto.empno}'">&nbsp;&nbsp;&nbsp;
 		<input type="button" value="삭제" 
-		onclick="if(confirm('비번찾아서 입력할래?')) {
+		onclick="if(confirm('ㄹㅇ?')) {
 		location.href='emp_delete.go?no=${dto.empno}'
 		} else {return;}">&nbsp;&nbsp;&nbsp;
 		<input type="button" value="사원목록"

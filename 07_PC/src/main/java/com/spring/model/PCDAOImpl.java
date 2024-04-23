@@ -51,7 +51,7 @@ public class PCDAOImpl implements PCDAO {
 	@Override
 	public PC getPCCont(int pnum) {
 		
-		return this.template;
+		return null;
 	}
 
 	@Override

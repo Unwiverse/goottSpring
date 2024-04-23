@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+    <mapper namespace="dao">
+    	
+   		<select id="all" resultType="pc">
+   			select * from pc order by pnum desc
+   		</select>
+   		
+   		<select id="chosen" parameterType="int" resultType="pc">
+   			select * from pc where pnum=#{no}
+   		</select>
+   		
+   		<insert id="insert" parameterType="pc">
+   			insert into pc values(
+   				(select max(pnum) from pc) +1,
+   				 #{cpu}, #{mainboard},
+   				 #{vga}, #{ram}, #{os})
+   		</insert> 
+   		
+   		<update id="update" parameterType="pc">
+   			update pc set cpu=#{cpu}, mainboard=#{mainboard},
+   			vga=#{vga}, ram=#{ram}, os=#{os} where pnum=#{pnum}
+   		</update>
+   		
+   		<delete id="delete" parameterType="int">
+   			delete from pc where pnum=#{no}
+   		</delete>
+   		
+   		<update id="Seq" parameterType="int">
+   			update pc set pnum = pnum - 1 where pnum > #{no}
+   		</update>
+   		
+   		<select id="map" parameterType="map"
+   						resultType="pc">
+   		
+   		select * from pc
+   		
+   		<if test="Field == 'cpu'">
+   			where cpu
+   		</if>
+   		
+   		<if test="Field == 'mainboard'">
+   			where mainboard
+   		</if>
+   		
+   		<if test="Field == 'vga'">
+   			where vga
+   		</if>	
+   		
+   		<if test="Field == 'ram'">
+   			where ram
+   		</if>
+   		like '%' || #{Keyword} || '%'
+   		order by pnum desc		
+   						
+   		</select>
+    
+    </mapper>

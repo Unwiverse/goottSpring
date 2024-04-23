@@ -36,9 +36,6 @@ public class EmpController {
 	}
 	@RequestMapping("emp_insert_ok.go")
 	public void insertok(Emp dto, HttpServletResponse response) throws IOException {
-		System.out.println(dto);
-		
-		
 		int check = this.dao.insertEmp(dto);
 		
 		response.setContentType("text/html; charset=UTF-8");

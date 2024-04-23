@@ -35,7 +35,8 @@
 			<br><br>
 			<input type="button" value="등록"
 			onclick="location.href='member_insert.go'">
-		
+			
+			
 	</div>
 
 </body>
