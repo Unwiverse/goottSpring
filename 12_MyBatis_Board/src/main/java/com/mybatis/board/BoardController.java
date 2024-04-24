@@ -112,22 +112,43 @@ public class BoardController {
 		out.println("</script>");
 	}
 	@RequestMapping("board_delete.go")
-	public void delete(@RequestParam("no") int no, HttpServletResponse res) throws IOException {
-		int check = this.dao.deleteBoard(no);
-		res.setContentType("text/html; charset=UTF-8");
+	public String delete(@RequestParam("no") int no, Model model) {
+		Board cont = this.dao.boardContent(no);
+		
+		model.addAttribute("delete", cont);
+		
+		return "board_delete";
+	}
+	@RequestMapping("board_delete_ok.go")
+	public void deleteOk(Board dto, 
+				@RequestParam("db_pwd") String db_pwd,
+				HttpServletResponse res) throws IOException {
+		res.setContentType("html/text; charset=UTF-8");
+		
 		PrintWriter out = res.getWriter();
 		
-		if(check>0) {
-			this.dao.updateSeq(no);
-			out.println("<script>");
-			out.println("alert('됨')");
-			out.println("location.href='board_list.go'");
-			out.println("</script>");
+		if(db_pwd.equals(dto.getBoard_pwd())) {
+			int result = this.dao.deleteBoard(dto.getBoard_no());
+			
+			if(result >0) {
+				this.dao.updateSeq(dto.getBoard_no());
+				
+				out.println("<script>");
+				out.println("alert('됨')");
+				out.println("location.href='board_list.go'");
+				out.println("</script>");
+			} else {
+				out.println("<script>");
+				out.println("alert('안됨')");
+				out.println("history.back()");
+				out.println("</script>");
+			}
 		} else {
 			out.println("<script>");
-			out.println("alert('안됨')");
+			out.println("alert('되겠냐??')");
 			out.println("history.back()");
 			out.println("</script>");
 		}
+		
 	}
 }
