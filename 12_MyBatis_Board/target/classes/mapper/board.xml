@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="boardDao">
+    	<select id="cnt" resultType="int">
+    		select count(*) from board
+    	</select>
+   		
+   		<select id="list" parameterType="pageDto" resultType="board">
+   			<![CDATA[
+   			select * from 
+   			(select row_number() over(order by board_no desc) rnum, b.* from board b)
+   				where rnum >= #{startNo} and rnum <= #{endNo}
+   			]]>
+   		</select>
+   		<!--
+   			대개 DB작업을 하다보면 먼저 사전에 어떤 값을 가져와서 해당 값을 증가시킨 후
+   			DB에 저장하거나 혹은 입력된 후에 증가값을 가져올 필요가 있는 경우가 많이 발생함
+   			이럴 땐 MyBatis에서 제공하는 selectKey라는 태그를 써서 별도의 쿼리 로직을 쓸
+   			필요없이 일괄처리 작업을 할 수 있게 해줌.
+   			
+   			*KeyProperty 속성: 해당 결과 값이 들어갈 DTO 객체의 멤버 변수명을 
+   			*order 속성: 해당 쿼리문의 실행 순서를 의미함.
+   						-BEFORE: 원래 실행할 쿼리문 이전에 selectKey 태그가 실행이 됨.
+   						-AFTER: 원래 실행할 쿼리문 이후에 selectKey 태그가 실행됨.
+   			*주의사항: 꼭 멤버변수에 해당하는 setter()와 getter()가 필요함.
+   		 -->
+   		<insert id="insert" parameterType="board">
+   			<selectKey resultType="int"
+   			 keyProperty="board_no" order="BEFORE">
+   			select max(board_no) from board
+   			</selectKey>
+   			
+   			insert into board values(#{board_no}+1, 
+   				#{board_writer}, #{board_title}, #{board_cont},
+   				#{board_pwd}, default, sysdate, '')
+   		</insert>
+   		
+   		<select id="cont" parameterType="int" resultType="board">
+   			select * from board where board_no=#{no}
+   		</select>
+   		
+   		<update id="count" parameterType="int">
+   			update board set board_hit = board_hit + 1 where board_no=#{no}
+   		</update>
+   		
+   		<update id="update" parameterType="board">
+   			update board set board_title=#{board_title}, board_cont=#{board_cont},
+   			board_update=sysdate where board_no=#{board_no}
+   		</update>
+   		
+   		<delete id="delete" parameterType="int">
+   			delete from board where board_no=#{no}
+   		</delete>
+   		
+   		<update id="seq" parameterType="int">
+   			update board set board_no = board_no -1 where board_no>#{no}
+   		</update>
+   		
+   		
+    	
+</mapper>
