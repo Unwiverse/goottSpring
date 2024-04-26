@@ -1,0 +1,7 @@
+create table pc_mybatis_mvc2 (
+        pnum number primary key,
+        cpu varchar2(200) not null,
+        mainboard varchar2(200) not null,
+        ram varchar2(200) not null,
+        vga varchar2(200)
+        );
