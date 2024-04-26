@@ -9,11 +9,13 @@
 </head>
 <body>
 	<c:set var="dto" value="${cont }" />
+	<c:set var="pic" value="${pic }" />
 	<div align="center">
 		<hr>
 			<h2>${dto.board_writer }의 게시글 정보</h2>	
 		<hr>
 		<br><br>
+		
 		<table border="1">
 		<c:if test="${!empty dto }">
 			<tr>
@@ -55,6 +57,18 @@
 				</tr>
 			</c:if>
 		</table>
+		
+		<table border="1">
+		<c:if test="${!empty pic}">
+			<tr>
+				<td colspan="12" align="center">
+				  <img src="<%=request.getContextPath() %>/resources/upload/${pic.file_path}"
+				   alt="Image">
+				</td>
+			</tr>
+		</c:if>
+		</table>
+		
 		<br><br>
 		<input type="button" value="수정" onclick="location.href='board_update.go?no=${dto.board_no}'">
 		<input type="button" value="삭제" 

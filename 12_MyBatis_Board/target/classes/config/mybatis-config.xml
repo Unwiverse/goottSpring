@@ -9,6 +9,7 @@
   		<typeAlias type="com.mybatis.model.BoardDAO" alias="boardDao"/>
   		<typeAlias type="com.mybatis.model.Board" alias="board"/>
   		<typeAlias type="com.mybatis.model.Page" alias="pageDto"/>
+  		<typeAlias type="com.mybatis.model.ZzacherDTO" alias="zzacher"/>
+  		<typeAlias type="com.mybatis.model.ZzacherDAO" alias="zzacherDao"/>
   	</typeAliases>
-  
-  </configuration>
+ </configuration>

@@ -31,7 +31,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public void readCount(int no) {
-		this.sqlSession.update("count", no);
+		this.sqlSession.update("count1", no);
 
 	}
 
@@ -57,14 +57,12 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int searchBoardCount(Map<String, String> map) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.sqlSession.selectOne("count2", map);
 	}
 
 	@Override
 	public List<Board> searchBoardList(Page pdto) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sqlSession.selectList("search", pdto);
 	}
 
 }

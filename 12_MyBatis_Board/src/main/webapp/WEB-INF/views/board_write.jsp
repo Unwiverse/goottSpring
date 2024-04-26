@@ -13,9 +13,10 @@
 			<hr>
 			<br><br>
 			
-			<form method="post"
+		
+		<form method="post" enctype="multipart/form-data" name="dto" 
 			action="<%=request.getContextPath() %>/board_write_ok.go">
-			
+				
 			<table border="1">
 				<tr>
 					<th>작성자</th>
@@ -41,6 +42,11 @@
 				</tr>
 				
 				<tr>
+					<th>사진</th>
+					<td><input type="file" name="img"></td>
+				</tr>
+				
+				<tr>
 					<td colspan="2" align="center">
 						<input type="submit" value="완료">
 						<input type="reset" value="다시">
@@ -48,7 +54,7 @@
 				</tr>
 			
 			</table>
-			</form>
+		</form>
 		</div>
 
 </body>

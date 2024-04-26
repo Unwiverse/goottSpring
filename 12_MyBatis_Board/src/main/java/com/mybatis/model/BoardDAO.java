@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 
-@Controller
 public interface BoardDAO {
 	
 	//페이징 작업에 필요한 전체 게시물 수 확인 추상 메서드

@@ -15,25 +15,33 @@
 	<hr>
 	<br><br>
 	<table border="1">
+	<c:set var="list" value="${List }" />
+	<c:set var="paging" value="${Paging }" />
+		<tr>
+			<td colspan="5" align="left">
+				<b>전체 게시물 수: ${paging.totalRecord }개</b>
+			</td>
+		</tr>
+	
 		<tr>
 			<th>번호</th> <th>제목</th> <th>작성자</th>
 			<th>조회수</th> <th>작성일자</th>
 		</tr>
-			<c:set var="list" value="${List }" />
-			<c:set var="paging" value="${Paging }" />
+			
 		
 			<c:if test="${!empty list }">
 				<c:forEach items="${list }" var="dto">
 					<tr>
 						<td>${dto.board_no}</td>
 						<td>
-							<a href="<%=request.getContextPath() %>/board_content.go?no=${dto.board_no}&page=${paging.page }">
+							<a href="<%=request.getContextPath() %>/board_content.go?no=${dto.board_no}&page=${paging.page}">
 							${dto.board_title}
 							</a>
 						</td>
 						<td>${dto.board_writer}</td>
 						<td>${dto.board_hit}</td>
 						<td>${dto.board_date.substring(0, 10)}</td>
+						
 					</tr>	
 				</c:forEach>
 			</c:if>
